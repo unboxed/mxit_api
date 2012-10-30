@@ -12,16 +12,18 @@ end
 require 'rake'
 
 require 'jeweler'
+require './lib/mxit_api/version.rb'
 Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "mxit_api"
-  gem.homepage = "http://github.com/grantspeelman/mxit_api"
+  gem.homepage = "http://github.com/unboxed/mxit_api"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{gem to use Mxit APIs}
+  gem.description = %Q{gem to use the Mxit APIs at http://dev.mxit.com/docs/ }
   gem.email = "grant.speelman@unboxedconsulting.com"
   gem.authors = ["Grant Speelman"]
+  gem.version = MXitApi::Version::STRING
   # dependencies defined in Gemfile
+  gem.add_dependency 'activesupport', '>= 3.0.0'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
