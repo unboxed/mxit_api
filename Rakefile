@@ -21,7 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{gem to use the Mxit APIs at http://dev.mxit.com/docs/ }
   gem.email = "grant.speelman@unboxedconsulting.com"
   gem.authors = ["Grant Speelman"]
-  gem.version = MXitApi::Version::STRING
+  gem.version = MxitApi::Version::STRING
   # dependencies defined in Gemfile
   gem.add_dependency 'activesupport', '>= 3.0.0'
 end

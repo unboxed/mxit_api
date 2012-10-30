@@ -1,3 +1,5 @@
+require 'net/http'
+require 'net/https'
 require 'active_support/json'
 require 'active_support/core_ext/numeric/time'
 require 'active_support/hash_with_indifferent_access'
