@@ -24,6 +24,7 @@ Jeweler::Tasks.new do |gem|
   gem.version = MxitApi::Version::STRING
   # dependencies defined in Gemfile
   gem.add_dependency 'activesupport', '>= 3.0.0'
+  gem.add_dependency 'i18n', '>= 0.5.0'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
