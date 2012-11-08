@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/mxit_api/send_invite.rb",
     "lib/mxit_api/send_message.rb",
     "lib/mxit_api/version.rb",
+    "mxit_api.gemspec",
     "spec/mxit_api_spec.rb",
     "spec/spec_helper.rb"
   ]
