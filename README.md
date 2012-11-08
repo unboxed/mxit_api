@@ -25,17 +25,32 @@ Examples
 ========
 
 Prerequisites (usually found on the mxit dashboard http://code.mxit.com/MobiDashboard/Default.aspx):
-* MXIT_CLIENT_ID
-* MXIT_CLIENT_SECRET
+* ruby 1.9.2
+* mxit client id
+* mxit secret id
 
 
-Authorization API
-----------------------------------------
-
-
-Messaging API
+Messaging
 ----------------
+http://dev.mxit.com/docs/api/messaging/post-message-send
 
+```ruby
+ connection = MxitApi.new(client_id, client_secret, {grant_type: 'client_credentials', scope: 'message/send'})
+ connection.send_message(to: "m123,m345", from: "yourappname", body: "This is a mxit message")
+```  
 
-User API
+User Profile
 ----------------
+http://dev.mxit.com/docs/authentication#OAuth2_Flows
+http://dev.mxit.com/docs/api/user/get-user-profile
+
+```ruby
+   connection = MxitApi.new(client_id, client_secret, {:grant_type => 'authorization_code',
+                                                       :code => "code from authentication",
+                                                       :redirect_uri => "http://you.host/redirect/url")
+   result = connection.profile
+   result[:display_name] 
+   result[:gender] 
+   # etc
+
+```
