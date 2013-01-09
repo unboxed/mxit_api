@@ -6,4 +6,6 @@ doc
 .bundle
 .rvmrc
 .idea
+.DS_Store
 pkg
+bin
