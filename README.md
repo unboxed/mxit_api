@@ -54,3 +54,19 @@ http://dev.mxit.com/docs/api/user/get-user-profile
    # etc
 
 ```
+
+MxitMoney
+----------------
+
+```ruby
+   connection = MxitMoneyApi.connect('mxit_money_client_id')
+   if connection
+    result = connection.user_info("m40000000000")
+    if result[:is_registered]
+        connection.issue_money(:phone_number => result[:msisdn],
+                               :merchant_reference => "#{result[:login_name]}#{rand(8999) + 1000}",
+                               :amount_in_cents => "150")
+    end
+   end
+   # etc
+```
