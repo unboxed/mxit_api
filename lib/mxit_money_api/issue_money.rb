@@ -7,9 +7,11 @@ class MxitMoneyApi
                               'Accept'=>'application/json',
                               'Content-Type' =>'application/json')
     req.basic_auth(api_key,"mxit_money_api".to_s)
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-    response = http.request(req)
+    response = Net::HTTP.start(url.host, url.port,
+                               :use_ssl => url.scheme == 'https',
+                               :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |https|
+      https.request(req)
+    end
     if response.code == '200' || response.code == '401' || response.code == '500' || response.code == '400'
       @balance = nil
       data = ActiveSupport::JSON.decode(response.body)
