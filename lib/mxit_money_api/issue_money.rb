@@ -2,7 +2,7 @@ class MxitMoneyApi
 
   def issue_money(params)
     params = Hash[params.map {|k, v| [k.to_s.camelize(:lower), v] }]
-    url = URI.parse("https://m2api.fireid.com/paymentsplatform/rest/v3/push/issue/#{params.delete('phoneNumber')}?#{params.to_query}")
+    url = URI.parse("#{BASE_URL}/paymentsplatform/rest/v3/push/issue/#{params.delete('phoneNumber')}?#{params.to_query}")
     req = Net::HTTP::Post.new(url.to_s,
                               'Accept'=>'application/json',
                               'Content-Type' =>'application/json')

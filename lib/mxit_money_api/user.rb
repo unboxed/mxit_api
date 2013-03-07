@@ -2,7 +2,7 @@ class MxitMoneyApi
 
   def user_info(params)
     params.symbolize_keys!
-    url = URI.parse("https://m2api.fireid.com/paymentsplatform/rest/v3/user/#{params[:id]}?idType=#{(params[:id_type] || 'mxit_id').to_s.camelize(:lower)}")
+    url = URI.parse("#{BASE_URL}/paymentsplatform/rest/v3/user/#{params[:id]}?idType=#{(params[:id_type] || 'mxit_id').to_s.camelize(:lower)}")
     req = Net::HTTP::Get.new(url.to_s, 'Accept'=>'application/json')
     req.basic_auth(api_key,"mxit_money_api".to_s)
     http = Net::HTTP.new(url.host, url.port)
