@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "mxit_api"
-  s.version = "0.2.1.pre"
+  s.version = "0.2.2.pre"
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = ["Grant Speelman"]
-  s.date = "2013-01-18"
+  s.date = "2013-03-07"
   s.description = "gem to use the Mxit APIs at http://dev.mxit.com/docs/ "
   s.email = "grant.speelman@unboxedconsulting.com"
   s.extra_rdoc_files = [
