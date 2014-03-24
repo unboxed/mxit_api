@@ -5,6 +5,7 @@ doc
 .yardoc
 .bundle
 .rvmrc
+.ruby-version
 .idea
 .DS_Store
 pkg
