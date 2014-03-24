@@ -7,6 +7,7 @@ class MxitMoneyApi
     req.basic_auth(api_key, 'mxit_money_api'.to_s)
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     response = http.request(req)
     if response.code == '200' || response.code == '401' || response.code == '500' || response.code == '400'
       data = ActiveSupport::JSON.decode(response.body)
