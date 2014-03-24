@@ -4,7 +4,7 @@ class MxitMoneyApi
     params.symbolize_keys!
     url = URI.parse("#{BASE_URL}/paymentsplatform/rest/v3/user/#{params[:id]}?idType=#{(params[:id_type] || 'mxit_id').to_s.camelize(:lower)}")
     req = Net::HTTP::Get.new(url.to_s, 'Accept'=>'application/json')
-    req.basic_auth(api_key,"mxit_money_api".to_s)
+    req.basic_auth(api_key, 'mxit_money_api'.to_s)
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     response = http.request(req)

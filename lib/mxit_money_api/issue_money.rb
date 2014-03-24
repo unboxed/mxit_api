@@ -6,7 +6,7 @@ class MxitMoneyApi
     req = Net::HTTP::Post.new(url.to_s,
                               'Accept'=>'application/json',
                               'Content-Type' =>'application/json')
-    req.basic_auth(api_key,"mxit_money_api".to_s)
+    req.basic_auth(api_key, 'mxit_money_api'.to_s)
     response = Net::HTTP.start(url.host, url.port,
                                :use_ssl => url.scheme == 'https',
                                :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |https|

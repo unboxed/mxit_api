@@ -1,6 +1,6 @@
 class MxitMoneyApi
 
-  BASE_URL = "https://api.mxitmoney.co.za"
+  BASE_URL = 'https://api.mxitmoney.co.za'
   attr_reader :api_key, :balance
 
   def initialize(api_key)
@@ -17,7 +17,7 @@ class MxitMoneyApi
     return @balance unless @balance.nil?
     url = URI.parse("#{BASE_URL}/paymentsplatform/rest/v3/push/")
     req = Net::HTTP::Get.new(url.path, 'Accept'=>'application/json')
-    req.basic_auth(api_key,"mxit_money_api")
+    req.basic_auth(api_key, 'mxit_money_api')
     response = Net::HTTP.start(url.host, url.port,
                                :use_ssl => url.scheme == 'https',
                                :verify_mode => OpenSSL::SSL::VERIFY_NONE) do |https|
