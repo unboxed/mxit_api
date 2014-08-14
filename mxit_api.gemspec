@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "mxit_api"
-  s.version = "0.2.3.pre"
+  s.version = "0.3.0"
 
-  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
+  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Grant Speelman"]
-  s.date = "2014-03-24"
+  s.date = "2014-08-14"
   s.description = "gem to use the Mxit APIs at http://dev.mxit.com/docs/ "
   s.email = "grant.speelman@unboxedconsulting.com"
   s.extra_rdoc_files = [
@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
     "lib/mxit_api/profile.rb",
     "lib/mxit_api/send_invite.rb",
     "lib/mxit_api/send_message.rb",
+    "lib/mxit_api/user_id.rb",
     "lib/mxit_api/version.rb",
     "lib/mxit_money_api/initialize.rb",
     "lib/mxit_money_api/issue_money.rb",
