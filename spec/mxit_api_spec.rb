@@ -1,7 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe MxitApi do
-
   before :each do
     token_body = '{"access_token":"c71219af53f5409e9d1db61db8a08248",
                     "token_type":"bearer",
@@ -11,8 +10,7 @@ describe MxitApi do
     stub_request(:post, 'https://1:1@auth.mxit.com/token').to_return(:status => 200, :body => token_body, :headers => {})
   end
 
-  context 'new' do
-
+  describe 'new' do
     it 'must post to mxit api requesting token' do
       MxitApi.new('1', '1',
                   :grant_type => 'authorization_code',
@@ -73,11 +71,9 @@ describe MxitApi do
                                :redirect_uri => '/')
       connection.access_token.should be_nil
     end
-
   end
 
-  context 'connect' do
-
+  describe 'connect' do
     it 'must return connection if has access_token' do
       connection = mock('MxitApi', access_token: '123')
       MxitApi.should_receive(:new).with(:grant_type => 'authorization_code',
@@ -97,11 +93,9 @@ describe MxitApi do
                       :code => '456',
                       :redirect_uri => '/').should be_nil
     end
-
   end
 
-  context 'profile' do
-
+  describe 'profile' do
     before :each do
       body = %&{ "DisplayName":"String content",
                  "AvatarId":"String content",
@@ -163,11 +157,9 @@ describe MxitApi do
       profile = @connection.profile
       profile.should be_empty
     end
-
   end
 
-  context 'send_message' do
-
+  describe 'send_message' do
     before :each do
       stub_request(:post, 'https://api.mxit.com/message/send/').to_return(:status => 200, :body => '', :headers => {})
       @connection = MxitApi.new('1', '1')
@@ -184,11 +176,9 @@ describe MxitApi do
                                     'User-Agent'=>'Ruby',
                                     'Content-Type' =>'application/json'})
     end
-
   end
 
-  context 'send_invite' do
-
+  describe 'send_invite' do
     before :each do
       stub_request(:put, 'https://api.mxit.com/user/socialgraph/contact/contactname').
         to_return(:status => 200, :body => '', :headers => {})
@@ -204,7 +194,5 @@ describe MxitApi do
                                     'Authorization'=>'bearer c71219af53f5409e9d1db61db8a08248',
                                     'User-Agent'=>'Ruby'})
     end
-
   end
-
 end
